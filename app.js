@@ -151,4 +151,17 @@ module.exports = (req, res) => {
         food={x:Math.floor(Math.random()*19+1)*box,y:Math.floor(Math.random()*19+1)*box};}
       else{snake.pop();}
       const newHead={x:snakeX,y:snakeY};
-      if(snakeX<0||snakeY<0
+      if(snakeX<0||snakeY<0||snakeX>=canvas.width||snakeY>=canvas.height||snake.some(seg=>seg.x===newHead.x&&seg.y===newHead.y)){
+        clearInterval(game);alert("게임 오버! 점수: "+score);}
+      snake.unshift(newHead);}
+    init();
+  </script>
+</body>
+</html>`);
+  }
+
+  else {
+    res.statusCode = 404;
+    res.end("<h1>404 Not Found</h1><a href='/'>홈으로 돌아가기</a>");
+  }
+};
