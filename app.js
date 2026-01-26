@@ -11,18 +11,26 @@ module.exports = (req, res) => {
         <meta charset="UTF-8">
         <title>메인 페이지</title>
         <style>
-          body { font-family: Arial, sans-serif; background: #f0f8ff; text-align: center; padding-top: 50px; }
+          body { font-family: Arial, sans-serif; background: #f0f8ff; margin:0; }
+          header { display:flex; justify-content:flex-end; background:#3498db; padding:10px; }
+          header a { margin-left:10px; padding:8px 15px; background:#2980b9; color:white; text-decoration:none; border-radius:5px; }
+          header a:hover { background:#1f6391; }
+          main { text-align:center; padding-top:50px; }
           h1 { color: #2c3e50; }
           p { color: #16a085; font-size: 18px; }
-          a { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #3498db; color: white; text-decoration: none; border-radius: 5px; }
-          a:hover { background: #2980b9; }
         </style>
       </head>
       <body>
-        <h1>메인 페이지</h1>
-        <p>환영합니다! 🚀</p>
-        <a href="/about">소개 페이지로 이동</a><br>
-        <a href="/snake">스네이크 게임으로 이동</a>
+        <header>
+          <a href="/about">소개</a>
+          <a href="/snake">게임</a>
+          <a href="/signup">회원가입</a>
+          <a href="/login">로그인</a>
+        </header>
+        <main>
+          <h1>메인 페이지</h1>
+          <p>환영합니다! 🚀</p>
+        </main>
       </body>
       </html>
     `);
@@ -32,22 +40,11 @@ module.exports = (req, res) => {
     res.end(`
       <!DOCTYPE html>
       <html lang="ko">
-      <head>
-        <meta charset="UTF-8">
-        <title>소개 페이지</title>
-        <style>
-          body { font-family: Arial, sans-serif; background: #fffaf0; text-align: center; padding-top: 50px; }
-          h1 { color: #8e44ad; }
-          p { color: #2c3e50; font-size: 18px; }
-          a { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #e67e22; color: white; text-decoration: none; border-radius: 5px; }
-          a:hover { background: #d35400; }
-        </style>
-      </head>
-      <body>
+      <head><meta charset="UTF-8"><title>소개 페이지</title></head>
+      <body style="text-align:center; padding-top:50px; font-family:Arial;">
         <h1>소개 페이지</h1>
         <p>이 서버는 Node.js로 만든 연습용 웹사이트입니다 😎</p>
         <a href="/">홈으로 돌아가기</a>
-        <a href="/snake">스네이크 게임으로 이동</a>
       </body>
       </html>
     `);
@@ -77,7 +74,6 @@ module.exports = (req, res) => {
   <canvas id="gameCanvas" width="400" height="400"></canvas>
   <button id="restartBtn">재시작</button>
   <a href="/">홈으로 돌아가기</a>
-  <a href="/about">소개 페이지로 이동</a>
   <script>
     const canvas=document.getElementById("gameCanvas");const ctx=canvas.getContext("2d");
     const scoreboard=document.getElementById("scoreboard");const restartBtn=document.getElementById("restartBtn");
@@ -112,15 +108,6 @@ module.exports = (req, res) => {
 
   else {
     res.statusCode = 404;
-    res.end(`
-      <!DOCTYPE html>
-      <html lang="ko">
-      <head><meta charset="UTF-8"><title>404 오류</title></head>
-      <body style="text-align:center; padding-top:50px; font-family:Arial;">
-        <h1>404 - 페이지를 찾을 수 없습니다</h1>
-        <a href="/">홈으로 돌아가기</a>
-      </body>
-      </html>
-    `);
+    res.end("<h1>404 Not Found</h1><a href='/'>홈으로 돌아가기</a>");
   }
 };
