@@ -1,8 +1,11 @@
-// Vercel용 Node.js 핸들러
+// 간단한 메모리 저장소 (연습용)
+const users = {}; // { username: password }
+
 module.exports = (req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html; charset=UTF-8");
 
+  // 메인 페이지
   if (req.url === "/") {
     res.end(`
       <!DOCTYPE html>
@@ -36,20 +39,71 @@ module.exports = (req, res) => {
     `);
   }
 
+  // 소개 페이지
   else if (req.url === "/about") {
+    res.end("<h1>소개 페이지</h1><p>이 서버는 Node.js로 만든 연습용 웹사이트입니다 😎</p><a href='/'>홈으로</a>");
+  }
+
+  // 회원가입 GET
+  else if (req.url === "/signup" && req.method === "GET") {
     res.end(`
-      <!DOCTYPE html>
-      <html lang="ko">
-      <head><meta charset="UTF-8"><title>소개 페이지</title></head>
-      <body style="text-align:center; padding-top:50px; font-family:Arial;">
-        <h1>소개 페이지</h1>
-        <p>이 서버는 Node.js로 만든 연습용 웹사이트입니다 😎</p>
-        <a href="/">홈으로 돌아가기</a>
-      </body>
-      </html>
+      <h1>회원가입</h1>
+      <form method="POST" action="/signup">
+        <input name="username" placeholder="아이디" required /><br><br>
+        <input name="password" type="password" placeholder="비밀번호" required /><br><br>
+        <button type="submit">가입하기</button>
+      </form>
+      <a href="/login">로그인 페이지로</a>
     `);
   }
 
+  // 회원가입 POST
+  else if (req.url === "/signup" && req.method === "POST") {
+    let body = "";
+    req.on("data", chunk => body += chunk);
+    req.on("end", () => {
+      const params = new URLSearchParams(body);
+      const username = params.get("username");
+      const password = params.get("password");
+      if (users[username]) {
+        res.end("<h1>이미 존재하는 아이디입니다 😅</h1><a href='/signup'>다시 시도</a>");
+      } else {
+        users[username] = password;
+        res.end(`<h1>회원가입 성공 🎉</h1><p>${username}님 환영합니다!</p><a href='/login'>로그인하기</a>`);
+      }
+    });
+  }
+
+  // 로그인 GET
+  else if (req.url === "/login" && req.method === "GET") {
+    res.end(`
+      <h1>로그인</h1>
+      <form method="POST" action="/login">
+        <input name="username" placeholder="아이디" required /><br><br>
+        <input name="password" type="password" placeholder="비밀번호" required /><br><br>
+        <button type="submit">로그인</button>
+      </form>
+      <a href="/signup">회원가입 페이지로</a>
+    `);
+  }
+
+  // 로그인 POST
+  else if (req.url === "/login" && req.method === "POST") {
+    let body = "";
+    req.on("data", chunk => body += chunk);
+    req.on("end", () => {
+      const params = new URLSearchParams(body);
+      const username = params.get("username");
+      const password = params.get("password");
+      if (users[username] && users[username] === password) {
+        res.end(`<h1>로그인 성공 🎉</h1><p>${username}님 환영합니다!</p><a href='/'>홈으로</a>`);
+      } else {
+        res.end("<h1>로그인 실패 ❌</h1><a href='/login'>다시 시도</a>");
+      }
+    });
+  }
+
+  // 스네이크 게임
   else if (req.url === "/snake") {
     res.end(`<!DOCTYPE html>
 <html lang="ko">
@@ -97,17 +151,4 @@ module.exports = (req, res) => {
         food={x:Math.floor(Math.random()*19+1)*box,y:Math.floor(Math.random()*19+1)*box};}
       else{snake.pop();}
       const newHead={x:snakeX,y:snakeY};
-      if(snakeX<0||snakeY<0||snakeX>=canvas.width||snakeY>=canvas.height||snake.some(seg=>seg.x===newHead.x&&seg.y===newHead.y)){
-        clearInterval(game);alert("게임 오버! 점수: "+score);}
-      snake.unshift(newHead);}
-    init();
-  </script>
-</body>
-</html>`);
-  }
-
-  else {
-    res.statusCode = 404;
-    res.end("<h1>404 Not Found</h1><a href='/'>홈으로 돌아가기</a>");
-  }
-};
+      if(snakeX<0||snakeY<0
