@@ -107,7 +107,7 @@ module.exports = (req, res) => {
 
         <div class="white-box">
           <h1 id="title">The Snake Game</h1>
-          <p>🎮 사과를 먹고 벽을 피하세요!<br>🏅 점수를 쌓아 올려 랭킹에 오를 수 있습니다!</p>
+            <a href="/snake">Game Start</a>
 
           ${
             currentUser
