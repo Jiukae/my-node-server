@@ -105,12 +105,13 @@ module.exports = (req, res) => {
           }
 
           .white-box {
-            width: 500px;
+            width: 700px;
             background-color: #ffffff !important; /* 강제 적용 */
             border-radius: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,1);
+            box-shadow: 0 12px 12px rgba(0,0,0,1);
             padding: 30px;
             text-align: center;
+            height: 500px;
           }
           a {
             font-size: 12px;
