@@ -87,6 +87,17 @@ module.exports = (req, res) => {
           header a:hover {
             background: rgba(0,0,0,0.6);
           }
+          a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 12px;
+            border-radius: 8px;
+          }
+          a:hover {
+            background: rgba(0,0,0,0.6);
+          }
           .white-box {
             width: 500px;
             background-color: white;
