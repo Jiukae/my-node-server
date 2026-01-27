@@ -96,7 +96,7 @@ module.exports = (req, res) => {
             border-radius: 8px;
           }
           a:hover {
-            background: rgba(0,0,0,0.6);
+            background: linear-gradient(45deg, #3498db, #8e44ad);
           }
           .white-box {
             width: 500px;
