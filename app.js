@@ -114,7 +114,7 @@ module.exports = (req, res) => {
             height: 500px;
           }
           a {
-            font-size: 12px;
+            font-size: 20px;
             color: black;
           }
 
@@ -135,10 +135,11 @@ module.exports = (req, res) => {
           <a class="game-link" href="/snake">Game Start</a>
           <br>
           <br>
+          <br>
           ${
             currentUser
               ? `<p>User: ${currentUser}</p>`
-              : `<a href="/login">Login</a><a href="/signup">Signup</a>`
+              : `<a href="/login">Login</a><p>  </p><a href="/signup">Signup</a>`
           }
         </div>
       </body>
