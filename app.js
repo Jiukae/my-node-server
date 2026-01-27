@@ -14,7 +14,7 @@ module.exports = (req, res) => {
       <head>
         <meta charset="UTF-8">
         <title>The Snake Game</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;900&display=swap">
         <style>
           body {
             display:flex;
@@ -23,7 +23,7 @@ module.exports = (req, res) => {
             height:100vh;
             animation: rainbowBg 20s linear infinite;
             margin:0;
-            font-family: 'Pretendard', sans-serif;
+            font-family: 'Outfit', sans-serif;
             flex-direction: column;
             text-align:center;
           }
@@ -130,7 +130,8 @@ module.exports = (req, res) => {
 
   // 소개 페이지
   else if (req.url === "/about") {
-    res.end("<h1>소개 페이지</h1><p>이 서버는 Node.js로 만든 연습용 웹사이트입니다 😎</p><a href='/'>홈으로</a>");
+    res.end(`
+      <!<h1>소개 페이지</h1><p>이 서버는 Node.js로 만든 연습용 웹사이트입니다 😎</p><a href='/'>홈으로</a>`);
   }
 
   // 회원가입 GET
