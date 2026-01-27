@@ -21,21 +21,13 @@ module.exports = (req, res) => {
             justify-content:center;
             align-items:center;
             height:100vh;
-            animation: rainbowBg 20s linear infinite;
             margin:0;
             font-family: 'Outfit', sans-serif;
             flex-direction: column;
             text-align:center;
+            color: rgb(0, 136, 255);
           }
-          @keyframes rainbowBg {
-            0%   { background-color: red; }
-            16%  { background-color: orange; }
-            33%  { background-color: yellow; }
-            50%  { background-color: green; }
-            66%  { background-color: blue; }
-            83%  { background-color: violet; }
-            100% { background-color: red; }
-          }
+          
           h1 {
             font-size: 64px;
             background: linear-gradient(90deg, #3498db, #8e44ad, #3498db);
@@ -112,10 +104,20 @@ module.exports = (req, res) => {
             padding: 30px;
             text-align: center;
             height: 500px;
+            animation: rainbowBg 20s linear infinite;
           }
           a {
             font-size: 20px;
             color: black;
+          }
+          @keyframes rainbowBg {
+            0%   { background-color: red; }
+            16%  { background-color: orange; }
+            33%  { background-color: yellow; }
+            50%  { background-color: green; }
+            66%  { background-color: blue; }
+            83%  { background-color: violet; }
+            100% { background-color: red; }
           }
 
         </style>
@@ -139,7 +141,7 @@ module.exports = (req, res) => {
           ${
             currentUser
               ? `<p>User: ${currentUser}</p>`
-              : `<a href="/login">Login</a><p>  </p><a href="/signup">Signup</a>`
+              : `<a href="/login">Login</a>"  "<a href="/signup">Signup</a>`
           }
         </div>
       </body>
