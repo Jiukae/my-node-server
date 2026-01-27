@@ -98,7 +98,7 @@ module.exports = (req, res) => {
           a:hover {
             background: linear-gradient(45deg, #3498db, #8e44ad);
           }
-            
+
           .white-box {
             width: 500px;
             background-color: #ffffff !important; /* 강제 적용 */
@@ -112,7 +112,6 @@ module.exports = (req, res) => {
       <body>
         <header>
           <a href="/about">소개</a>
-          <a href="/snake">게임</a>
           <a href="/signup">회원가입</a>
           <a href="/login">로그인</a>
         </header>
@@ -124,17 +123,9 @@ module.exports = (req, res) => {
           ${
             currentUser
               ? `<p>환영합니다, ${currentUser}님 🎉</p>`
-              : `<input type="text" id="textInput" placeholder="사용자 이름 입력">
-                 <button onclick="updateUser()">확인</button>`
+              : `<p>로그인 후 게임을 즐겨보세요! 😎</p>`
           }
         </div>
-
-        <script>
-          function updateUser() {
-            const value = document.getElementById("textInput").value;
-            document.getElementById("title").innerHTML = "Test Game<br>User: " + value;
-          }
-        </script>
       </body>
       </html>
     `);
