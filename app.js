@@ -68,6 +68,26 @@ module.exports = (req, res) => {
               font-size: 16px;
               margin-left: 10px;
             }
+            header {
+              position: absolute;   /* 화면 위에 고정 */
+              top: 20px;
+              left: 50%;
+              transform: translateX(-50%);
+              display: flex;
+              gap: 20px;            /* 링크 간격 */
+            }
+
+            header a {
+              text-decoration: none; /* 밑줄 제거 */
+              color: white;          /* 글자색 */
+              font-weight: bold;
+              background: rgba(0,0,0,0.3);
+              padding: 8px 12px;
+              border-radius: 8px;
+            }
+            header a:hover {
+              background: rgba(0,0,0,0.6);
+            } 
           </style>
         </head>
         <body>
