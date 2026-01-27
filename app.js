@@ -10,31 +10,101 @@ module.exports = (req, res) => {
     res.end(`
       <!DOCTYPE html>
       <html lang="ko">
-      <head>
-        <meta charset="UTF-8">
-        <title>메인 페이지</title>
-        <style>
-          body { font-family: Arial, sans-serif; background: #f0f8ff; margin:0; }
-          header { display:flex; justify-content:flex-end; background:#3498db; padding:10px; }
-          header a { margin-left:10px; padding:8px 15px; background:#2980b9; color:white; text-decoration:none; border-radius:5px; }
-          header a:hover { background:#1f6391; }
-          main { text-align:center; padding-top:50px; }
-          h1 { color: #2c3e50; }
-          p { color: #16a085; font-size: 18px; }
-        </style>
-      </head>
-      <body>
-        <header>
-          <a href="/about">소개</a>
-          <a href="/snake">게임</a>
-          <a href="/signup">회원가입</a>
-          <a href="/login">로그인</a>
-        </header>
-        <main>
-          <h1>메인 페이지</h1>
-          <p>환영합니다! 🚀</p>
-        </main>
-      </body>
+        <head>
+          <meta charset="UTF-8">
+          <title>The Snake Game</title>
+          <!-- Pretendard 폰트 불러오기 -->
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+          <style>
+            body {
+              display:flex;
+              justify-content:center;
+              align-items:center;
+              height:100vh;
+              animation: rainbowBg 20s linear infinite;
+              margin:0;
+              font-family: 'Pretendard', sans-serif;
+              flex-direction: column;
+              text-align:center;
+            }
+            @keyframes rainbowBg {
+              0%   { background-color: red; }
+              16%  { background-color: orange; }
+              33%  { background-color: yellow; }
+              50%  { background-color: green; }
+              66%  { background-color: blue; }
+              83%  { background-color: violet; }
+              100% { background-color: red; }
+            }
+            h1 {
+              font-size: 64px;
+              background: linear-gradient(90deg, #3498db, #8e44ad, #3498db);
+              background-size: 200% auto;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+              color: transparent;
+              animation: gradientMove 2s linear infinite alternate,
+                        updown 1s ease-in-out infinite alternate;
+              position: relative;
+              margin-top: 100px;
+              text-align: center;
+            }
+            @keyframes gradientMove {
+              from { background-position: 0% 50%; }
+              to   { background-position: 100% 50%; }
+            }
+            @keyframes updown {
+              from { transform: translateY(0); }
+              to   { transform: translateY(-30px); }
+            }
+            input {
+              padding: 10px;
+              font-size: 16px;
+              margin-top: 20px;
+            }
+            button {
+              padding: 10px 20px;
+              font-size: 16px;
+              margin-left: 10px;
+            }
+          </style>
+        </head>
+        <body>
+          <header>
+            <a href="/about">소개</a>
+            <a href="/snake">게임</a>
+            <a href="/signup">회원가입</a>
+            <a href="/login">로그인</a>
+          </header>
+
+          <div class="white-box">
+            <h1 id="title">The Snake Game</h1>
+                <p>🎮 사과를 먹고 벽을 피하세요!<br>🏅 점수를 쌓아 올려 랭킹에 오를 수 있습니다!</p>
+
+            <!-- 입력창과 버튼 -->
+            <input type="text" id="textInput" placeholder="사용자 이름 입력">
+            <button onclick="updateUser()">확인</button>
+          </div>
+
+          <style>
+            .white-box {
+                width: 500px;                 /* 박스 가로 크기 */
+                background-color: white;      /* 배경 흰색 */
+                border-radius: 30px;          /* 모서리 둥글게 */
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* 그림자 */
+                padding: 30px;                /* 안쪽 여백 */
+                text-align: center;           /* 텍스트 가운데 */
+            }
+          </style>
+          <script>
+            function updateUser() {
+              const value = document.getElementById("textInput").value;
+              document.getElementById("title").innerHTML = "Test Game<br>User: " + value;
+            }
+          </script>
+
+        </body>
       </html>
     `);
   }
