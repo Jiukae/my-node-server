@@ -91,12 +91,13 @@ module.exports = (req, res) => {
             text-decoration: none;
             color: white;
             font-weight: bold;
-            background: rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #3498db, #8e44ad);
             padding: 8px 12px;
             border-radius: 8px;
           }
           a:hover {
             background: linear-gradient(45deg, #3498db, #8e44ad);
+          }
           }
           .white-box {
             width: 500px;
@@ -118,7 +119,7 @@ module.exports = (req, res) => {
 
         <div class="white-box">
           <h1 id="title">The Snake Game</h1>
-            <a href="/snake">Game Start</a>
+          <a href="/snake">Game Start</a>
 
           ${
             currentUser
