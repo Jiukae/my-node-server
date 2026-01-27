@@ -60,6 +60,7 @@ module.exports = (req, res) => {
           }
           p {
             font-weight: 100px;
+            font-size: 30px
           }
           input {
             padding: 10px;
@@ -90,7 +91,7 @@ module.exports = (req, res) => {
           header a:hover {
             background: rgba(0,0,0,0.6);
           }
-          a {
+          .game-link {
             text-decoration: none;
             color: white;
             font-weight: bold;
@@ -111,6 +112,8 @@ module.exports = (req, res) => {
             padding: 30px;
             text-align: center;
           }
+          
+            
         </style>
       </head>
       <body>
@@ -122,12 +125,15 @@ module.exports = (req, res) => {
 
         <div class="white-box">
           <h1 id="title">The Snake Game</h1>
+          <br>
           <p>Eat Apples • Dodge Walls • Survive Longer</p>
-          <a href="/snake">Game Start</a>
+          <br>
+          <a class="game-link" href="/snake">Game Start</a>
+          <br>
           ${
             currentUser
-              ? `<p>환영합니다, ${currentUser}님 🎉</p>`
-              : `<p>로그인 후 게임을 즐겨보세요! 😎</p>`
+              ? `<p>User: ${currentUser}</p>`
+              : `<a href="/login">Login</a><a href="/signup">Signup</a>`
           }
         </div>
       </body>
