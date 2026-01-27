@@ -58,6 +58,9 @@ module.exports = (req, res) => {
             from { transform: translateY(0); }
             to   { transform: translateY(-30px); }
           }
+          p {
+            font-weight: 100px;
+          }
           input {
             padding: 10px;
             font-size: 16px;
@@ -92,8 +95,9 @@ module.exports = (req, res) => {
             color: white;
             font-weight: bold;
             background: linear-gradient(45deg, #3498db, #8e44ad);
-            padding: 8px 12px;
+            padding: 16px 20px;
             border-radius: 8px;
+            font-size: 20px;
           }
           a:hover {
             background: linear-gradient(45deg, #3498db, #8e44ad);
@@ -118,8 +122,8 @@ module.exports = (req, res) => {
 
         <div class="white-box">
           <h1 id="title">The Snake Game</h1>
+          <p>Eat Apples • Dodge Walls • Survive Longer</p>
           <a href="/snake">Game Start</a>
-
           ${
             currentUser
               ? `<p>환영합니다, ${currentUser}님 🎉</p>`
