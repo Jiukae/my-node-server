@@ -98,10 +98,10 @@ module.exports = (req, res) => {
           a:hover {
             background: linear-gradient(45deg, #3498db, #8e44ad);
           }
-          }
+            
           .white-box {
             width: 500px;
-            background-color: white;
+            background-color: #ffffff !important; /* 강제 적용 */
             border-radius: 30px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             padding: 30px;
