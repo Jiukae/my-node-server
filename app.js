@@ -108,12 +108,15 @@ module.exports = (req, res) => {
             width: 500px;
             background-color: #ffffff !important; /* 강제 적용 */
             border-radius: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,1);
             padding: 30px;
             text-align: center;
           }
-          
-            
+          a {
+            font-size: 12px;
+            color: black;
+          }
+
         </style>
       </head>
       <body>
@@ -129,6 +132,7 @@ module.exports = (req, res) => {
           <p>Eat Apples • Dodge Walls • Survive Longer</p>
           <br>
           <a class="game-link" href="/snake">Game Start</a>
+          <br>
           <br>
           ${
             currentUser
