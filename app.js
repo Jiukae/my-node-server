@@ -17,9 +17,9 @@ module.exports = (req, res) => {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;900&display=swap">
         <style>
           body {
-            display:flex;
-            justify-content:center;
-            align-items:center;
+            display: flex;
+            justify-content: flex-start; /* 박스를 왼쪽으로 */
+            align-items: center;  
             height:100vh;
             margin:0;
             font-family: 'Outfit', sans-serif;
@@ -127,9 +127,7 @@ module.exports = (req, res) => {
       </head>
       <body>
         <header>
-          <a href="/about">소개</a>
-          <a href="/signup">회원가입</a>
-          <a href="/login">로그인</a>
+          <a href="/about">About</a>
         </header>
 
         <div class="white-box">
@@ -144,7 +142,7 @@ module.exports = (req, res) => {
           ${
             currentUser
               ? `<p>User: ${currentUser}</p>`
-              : `<a href="/login">Login</a>"  "<a href="/signup">Signup</a>`
+              : `<a href="/login">Login</a>   <a href="/signup">Register</a>`
           }
         </div>
       </body>
