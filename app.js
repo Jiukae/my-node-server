@@ -79,6 +79,7 @@ module.exports = (req, res) => {
             background: rgba(0,0,0,0.3);
             padding: 8px 12px;
             border-radius: 8px;
+            font-size: 20px;
           }
           header a:hover {
             background: rgba(0,0,0,0.6);
@@ -105,7 +106,8 @@ module.exports = (req, res) => {
             text-align: center;
             height: 500px;
             animation: rainbowBg 20s linear infinite;
-            left: 0px !important;
+            position: relative;
+            margin-left: 0px;
           }
           a {
             font-size: 20px;
