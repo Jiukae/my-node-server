@@ -136,7 +136,7 @@ module.exports = (req, res) => {
           <a href="/about">About</a>
         </header>
 
-        <div class="white-box"></div>
+        
         <h1 id="title">The Snake Game</h1>
         <br>
         <p>Eat Apples • Dodge Walls • Survive Longer</p>
