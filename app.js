@@ -109,7 +109,8 @@ module.exports = (req, res) => {
             height: 500px;
             animation: rainbowBg 20s linear infinite;
             align-self: flex-start;      /* 박스만 왼쪽으로 */
-            margin-left: 50px;
+            position: absolute;
+            left: 0;  
           }
           a {
             font-size: 20px;
@@ -135,21 +136,20 @@ module.exports = (req, res) => {
           <a href="/about">About</a>
         </header>
 
-        <div class="white-box">
-          <h1 id="title">The Snake Game</h1>
-          <br>
-          <p>Eat Apples • Dodge Walls • Survive Longer</p>
-          <br>
-          <a class="game-link" href="/snake">Game Start</a>
-          <br>
-          <br>
-          <br>
-          ${
-            currentUser
-              ? `<p>User: ${currentUser}</p>`
-              : `<a href="/login">Login</a><a href="/signup">Register</a>`
-          }
-        </div>
+        <div class="white-box"></div>
+        <h1 id="title">The Snake Game</h1>
+        <br>
+        <p>Eat Apples • Dodge Walls • Survive Longer</p>
+        <br>
+        <a class="game-link" href="/snake">Game Start</a>
+        <br>
+        <br>
+        <br>
+        ${
+          currentUser
+            ? `<p>User: ${currentUser}</p>`
+            : `<a href="/login">Login</a><a href="/signup">Register</a>`
+        }
       </body>
       </html>
     `);
