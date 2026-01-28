@@ -132,11 +132,15 @@ module.exports = (req, res) => {
         </style>
       </head>
       <body>
-        <header>
-          <a href="/about">About</a>
-        </header>
-
-        
+        <aside class="sidebar">
+        <h2>메뉴</h2>
+        <ul>
+        <li><a href="/about">소개</a></li>
+        <li><a href="/snake">게임</a></li>
+        <li><a href="/login">로그인</a></li>
+        <li><a href="/signup">회원가입</a></li>
+        </ul>
+        </aside>
         <h1 id="title">The Snake Game</h1>
         <br>
         <p>Eat Apples • Dodge Walls • Survive Longer</p>
