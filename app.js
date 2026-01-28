@@ -128,6 +128,29 @@ module.exports = (req, res) => {
             83%  { background-color: violet; }
             100% { background-color: red; }
           }
+          .sidebar {
+            width: 200px;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+          }
+
+          .sidebar a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            margin: 10px 0;
+          }
+
+          .content {
+            flex: 1;              /* 남은 공간 채우기 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* 세로 중앙 */
+            align-items: center;     /* 가로 중앙 */
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+            color: white;
+          }
 
         </style>
       </head>
