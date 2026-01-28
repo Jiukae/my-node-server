@@ -11,173 +11,190 @@ module.exports = (req, res) => {
     res.end(`
       <!DOCTYPE html>
       <html lang="ko">
-      <head>
-        <meta charset="UTF-8">
-        <title>The Snake Game</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;900&display=swap">
-        <style>
-          body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;   
-            height:100vh;
-            margin:0;
-            font-family: 'Outfit', sans-serif;
-            flex-direction: column;
-            text-align:center;
-            background: rgb(0, 136, 255);
-          }
-          
-          h1 {
-            font-size: 64px;
-            background: linear-gradient(90deg, #3498db, #8e44ad, #3498db);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
-            animation: gradientMove 2s linear infinite alternate,
-                       updown 1s ease-in-out infinite alternate;
-            position: relative;
-            margin-top: 100px;
-            text-align: center;
-          }
-          @keyframes gradientMove {
-            from { background-position: 0% 50%; }
-            to   { background-position: 100% 50%; }
-          }
-          @keyframes updown {
-            from { transform: translateY(0); }
-            to   { transform: translateY(-30px); }
-          }
-          p {
-            font-weight: 100px;
-            font-size: 30px
-          }
-          input {
-            padding: 10px;
-            font-size: 16px;
-            margin-top: 20px;
-          }
-          button {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin-left: 10px;
-          }
-          header {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-          }
-          header a {
-            text-decoration: none;
-            color: white;
-            font-weight: 400px;
-            background: rgba(0,0,0,0.3);
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 12px;
+        <head>
+          <meta charset="UTF-8">
+          <title>The Snake Game</title>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;900&display=swap">
+          <style>
+            body {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;   
+              height:100vh;
+              margin:0;
+              font-family: 'Outfit', sans-serif;
+              flex-direction: column;
+              text-align:center;
+              background: rgb(0, 136, 255);
+            }
+            
+            h1 {
+              font-size: 64px;
+              background: linear-gradient(90deg, #3498db, #8e44ad, #3498db);
+              background-size: 200% auto;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+              color: transparent;
+              animation: gradientMove 2s linear infinite alternate,
+                        updown 1s ease-in-out infinite alternate;
+              position: relative;
+              margin-top: 100px;
+              text-align: center;
+            }
+            @keyframes gradientMove {
+              from { background-position: 0% 50%; }
+              to   { background-position: 100% 50%; }
+            }
+            @keyframes updown {
+              from { transform: translateY(0); }
+              to   { transform: translateY(-30px); }
+            }
+            p {
+              font-weight: 100px;
+              font-size: 30px
+            }
+            input {
+              padding: 10px;
+              font-size: 16px;
+              margin-top: 20px;
+            }
+            button {
+              padding: 10px 20px;
+              font-size: 16px;
+              margin-left: 10px;
+            }
+            header {
+              position: absolute;
+              top: 20px;
+              left: 50%;
+              transform: translateX(-50%);
+              display: flex;
+              gap: 20px;
+            }
+            header a {
+              text-decoration: none;
+              color: white;
+              font-weight: 400px;
+              background: rgba(0,0,0,0.3);
+              padding: 8px 12px;
+              border-radius: 8px;
+              font-size: 12px;
 
-          }
-          header a:hover {
-            background: rgba(0,0,0,0.6);
-          }
-          .game-link {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            background: linear-gradient(45deg, #3498db, #8e44ad);
-            padding: 16px 20px;
-            border-radius: 8px;
-            font-size: 20px;
-          }
-          a:hover {
-            background: linear-gradient(45deg, #3498db, #8e44ad);
-          }
+            }
+            header a:hover {
+              background: rgba(0,0,0,0.6);
+            }
+            .game-link {
+              text-decoration: none;
+              color: white;
+              font-weight: bold;
+              background: linear-gradient(45deg, #3498db, #8e44ad);
+              padding: 16px 20px;
+              border-radius: 8px;
+              font-size: 20px;
+            }
+            a:hover {
+              background: linear-gradient(45deg, #3498db, #8e44ad);
+            }
 
-          .white-box {
-            width: 700px;
-            background-color: #ffffff !important; /* 강제 적용 */
-            border-radius: 30px;
-            box-shadow: 0 12px 12px rgba(0,0,0,1);
-            padding: 30px;
-            text-align: center;
-            height: 500px;
-            animation: rainbowBg 20s linear infinite;
-            align-self: flex-start;      /* 박스만 왼쪽으로 */
-            position: absolute;
-            left: 0;  
-          }
-          a {
-            font-size: 20px;
-            color: black;
-            margin-right: 20px; /* 오른쪽에 20px 간격 */
-            text-decoration: none;
-            font-weight: 400px;
-          }
-          @keyframes rainbowBg {
-            0%   { background-color: red; }
-            16%  { background-color: orange; }
-            33%  { background-color: yellow; }
-            50%  { background-color: green; }
-            66%  { background-color: blue; }
-            83%  { background-color: violet; }
-            100% { background-color: red; }
-          }
-          .sidebar {
-            width: 200px;
-            background: #2c3e50;
-            color: white;
-            padding: 20px;
-          }
+            .white-box {
+              width: 700px;
+              background-color: #ffffff !important; /* 강제 적용 */
+              border-radius: 30px;
+              box-shadow: 0 12px 12px rgba(0,0,0,1);
+              padding: 30px;
+              text-align: center;
+              height: 500px;
+              animation: rainbowBg 20s linear infinite;
+              align-self: flex-start;      /* 박스만 왼쪽으로 */
+              position: absolute;
+              left: 0;  
+            }
+            a {
+              font-size: 20px;
+              color: black;
+              margin-right: 20px; /* 오른쪽에 20px 간격 */
+              text-decoration: none;
+              font-weight: 400px;
+            }
+            @keyframes rainbowBg {
+              0%   { background-color: red; }
+              16%  { background-color: orange; }
+              33%  { background-color: yellow; }
+              50%  { background-color: green; }
+              66%  { background-color: blue; }
+              83%  { background-color: violet; }
+              100% { background-color: red; }
+            }
+            .layout {
+              display: flex;
+              height: 100%;
+            }
 
-          .sidebar a {
-            text-decoration: none;
-            color: white;
-            display: block;
-            margin: 10px 0;
-          }
+            .sidebar {
+              width: 200px;
+              background: #2c3e50;
+              color: white;
+              padding: 20px;
+            }
 
-          .content {
-            flex: 1;              /* 남은 공간 채우기 */
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* 세로 중앙 */
-            align-items: center;     /* 가로 중앙 */
-            background: linear-gradient(135deg, #3498db, #8e44ad);
-            color: white;
-          }
+            .sidebar ul {
+              list-style: none;
+              padding: 0;
+            }
 
-        </style>
-      </head>
-      <body>
-        <aside class="sidebar">
-        <h2>메뉴</h2>
-        <ul>
-        <li><a href="/about">소개</a></li>
-        <li><a href="/snake">게임</a></li>
-        <li><a href="/login">로그인</a></li>
-        <li><a href="/signup">회원가입</a></li>
-        </ul>
-        </aside>
-        <h1 id="title">The Snake Game</h1>
-        <br>
-        <p>Eat Apples • Dodge Walls • Survive Longer</p>
-        <br>
-        <a class="game-link" href="/snake">Game Start</a>
-        <br>
-        <br>
-        <br>
-        ${
-          currentUser
-            ? `<p>User: ${currentUser}</p>`
-            : `<a href="/login">Login</a><a href="/signup">Register</a>`
-        }
-      </body>
+            .sidebar li {
+              margin: 10px 0;
+            }
+
+            .sidebar a {
+              color: white;
+              text-decoration: none;
+            }
+
+            .main-content {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              justify-content: center; /* 세로 중앙 */
+              align-items: center;     /* 가로 중앙 */
+              color: white;
+              text-align: center;
+            }
+
+
+          </style>
+        </head>
+        <body>
+          <div class="layout">
+            <aside class="sidebar">
+              <h2>메뉴</h2>
+              <ul>
+              <li><a href="/about">소개</a></li>
+              <li><a href="/snake">게임</a></li>
+              <li><a href="/login">로그인</a></li>
+              <li><a href="/signup">회원가입</a></li>
+              </ul>
+            </aside>
+            <main class="main-content">
+              <h1 id="title">The Snake Game</h1>
+              <br>
+              <p>Eat Apples • Dodge Walls • Survive Longer</p>
+              <br>
+              <a class="game-link" href="/snake">Game Start</a>
+              <br>
+              <br>
+              <br>
+              ${
+                currentUser
+                  ? `<p>User: ${currentUser}</p>`
+                  : `<a href="/login">Login</a><a href="/signup">Register</a>`
+              }
+            </main>
+          </div>
+        </body>
       </html>
     `);
   }
