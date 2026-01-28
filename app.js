@@ -18,8 +18,8 @@ module.exports = (req, res) => {
         <style>
           body {
             display: flex;
-            justify-content: flex-start; /* 박스를 왼쪽으로 */
-            align-items: center;  
+            flex-direction: column;
+            align-items: center;   
             height:100vh;
             margin:0;
             font-family: 'Outfit', sans-serif;
@@ -106,12 +106,15 @@ module.exports = (req, res) => {
             text-align: center;
             height: 500px;
             animation: rainbowBg 20s linear infinite;
-            position: relative;
-            margin-left: 0px;
+            align-self: flex-start;      /* 박스만 왼쪽으로 */
+            margin-left: 50px;
           }
           a {
             font-size: 20px;
             color: black;
+            margin-right: 20px; /* 오른쪽에 20px 간격 */
+            text-decoration: none;
+            font-weight: 200px;
           }
           @keyframes rainbowBg {
             0%   { background-color: red; }
@@ -142,7 +145,7 @@ module.exports = (req, res) => {
           ${
             currentUser
               ? `<p>User: ${currentUser}</p>`
-              : `<a href="/login">Login</a>   <a href="/signup">Register</a>`
+              : `<a href="/login">Login</a><a href="/signup">Register</a>`
           }
         </div>
       </body>
