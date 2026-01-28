@@ -19,6 +19,7 @@ module.exports = (req, res) => {
           body {
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;   
             height:100vh;
             margin:0;
@@ -75,11 +76,12 @@ module.exports = (req, res) => {
           header a {
             text-decoration: none;
             color: white;
-            font-weight: bold;
+            font-weight: 400px;
             background: rgba(0,0,0,0.3);
             padding: 8px 12px;
             border-radius: 8px;
-            font-size: 20px;
+            font-size: 12px;
+
           }
           header a:hover {
             background: rgba(0,0,0,0.6);
@@ -114,7 +116,7 @@ module.exports = (req, res) => {
             color: black;
             margin-right: 20px; /* 오른쪽에 20px 간격 */
             text-decoration: none;
-            font-weight: 200px;
+            font-weight: 400px;
           }
           @keyframes rainbowBg {
             0%   { background-color: red; }
