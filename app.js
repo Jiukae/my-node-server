@@ -26,7 +26,6 @@ module.exports = (req, res) => {
               font-family: 'Outfit', sans-serif;
               flex-direction: column;
               text-align:center;
-              background: rgb(0, 136, 255);
             }
             
             h1 {
