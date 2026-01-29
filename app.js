@@ -134,21 +134,25 @@ module.exports = (req, res) => {
             }
 
             .sidebar {
-              width: 200px;              /* aside 고정 너비 */
+              position: fixed;
+              left: 0;
+              top: 0;
+              height: 100vh;
+              width: 200px;
               background: #2c3e50;
               color: white;
               padding: 20px;
             }
 
             .main-content {
-              flex: 1;                   /* 남은 공간 채우기 */
+              margin-left: 200px;        /* aside 너비만큼 오른쪽으로 밀기 */
               display: flex;
               flex-direction: column;
-              justify-content: center;   /* 세로 중앙 */
-              align-items: center;       /* 가로 중앙 (aside 제외 영역 기준) */
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
               background: #3498db;
               color: white;
-              text-align: center;
             }
 
 
