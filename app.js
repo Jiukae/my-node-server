@@ -134,35 +134,23 @@ module.exports = (req, res) => {
             }
 
             .sidebar {
-              width: 200px;
+              width: 200px;              /* aside 고정 너비 */
               background: #2c3e50;
               color: white;
               padding: 20px;
             }
 
-            .sidebar ul {
-              list-style: none;
-              padding: 0;
-            }
-
-            .sidebar li {
-              margin: 10px 0;
-            }
-
-            .sidebar a {
-              color: white;
-              text-decoration: none;
-            }
-
             .main-content {
-              flex: 1;
+              flex: 1;                   /* 남은 공간 채우기 */
               display: flex;
               flex-direction: column;
-              justify-content: center; /* 세로 중앙 */
-              align-items: center;     /* 가로 중앙 */
+              justify-content: center;   /* 세로 중앙 */
+              align-items: center;       /* 가로 중앙 (aside 제외 영역 기준) */
+              background: #3498db;
               color: white;
               text-align: center;
             }
+
 
 
           </style>
