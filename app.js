@@ -132,7 +132,7 @@ module.exports = (req, res) => {
               100% { background-color: red; }
             }
             .main-content {
-              background-image: url("image.jpg");
+              background-image: url("https://img.freepik.com/free-photo/3d-christmas-winter-landscape-with-falling-snow_1048-17353.jpg?t=st=1769682466~exp=1769686066~hmac=9c32214e4cd17d678a5ef1b9433981e61bdfcaf6ed241a96a3feca1887ea3712");
               margin-left: 200px;        /* aside 너비만큼 오른쪽으로 밀기 */
               display: flex;
               flex-direction: column;
