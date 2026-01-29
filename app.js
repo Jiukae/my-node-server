@@ -119,15 +119,7 @@ module.exports = (req, res) => {
               text-decoration: none;
               font-weight: 400px;
             }
-            @keyframes rainbowBg {
-              0%   { background-color: red; }
-              16%  { background-color: orange; }
-              33%  { background-color: yellow; }
-              50%  { background-color: green; }
-              66%  { background-color: blue; }
-              83%  { background-color: violet; }
-              100% { background-color: red; }
-            }
+            
             .layout {
               display: flex;
               height: 100%;
@@ -142,16 +134,26 @@ module.exports = (req, res) => {
               background: #2c3e50;
               color: white;
               padding: 20px;
+              box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+              animation: rainbowBg 20s linear infinite;
             }
-
+            @keyframes rainbowBg {
+              0%   { background-color: red; }
+              16%  { background-color: orange; }
+              33%  { background-color: yellow; }
+              50%  { background-color: green; }
+              66%  { background-color: blue; }
+              83%  { background-color: violet; }
+              100% { background-color: red; }
+            }
             .main-content {
+              background-image: url("logo.png");
               margin-left: 200px;        /* aside 너비만큼 오른쪽으로 밀기 */
               display: flex;
               flex-direction: column;
               justify-content: center;
               align-items: center;
               height: 100vh;
-              background: #3498db;
               color: white;
             }
 
@@ -164,10 +166,9 @@ module.exports = (req, res) => {
             <aside class="sidebar">
               <h2>메뉴</h2>
               <ul>
-              <li><a href="/about">소개</a></li>
-              <li><a href="/snake">게임</a></li>
-              <li><a href="/login">로그인</a></li>
-              <li><a href="/signup">회원가입</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/login">Login</a></li>
+              <li><a href="/signup">Register</a></li>
               </ul>
             </aside>
             <main class="main-content">
