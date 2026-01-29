@@ -140,6 +140,9 @@ module.exports = (req, res) => {
               align-items: center;
               height: 100vh;
               color: white;
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
             }
 
 
