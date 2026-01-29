@@ -97,20 +97,6 @@ module.exports = (req, res) => {
             a:hover {
               background: linear-gradient(45deg, #3498db, #8e44ad);
             }
-
-            .white-box {
-              width: 700px;
-              background-color: #ffffff !important; /* 강제 적용 */
-              border-radius: 30px;
-              box-shadow: 0 12px 12px rgba(0,0,0,1);
-              padding: 30px;
-              text-align: center;
-              height: 500px;
-              animation: rainbowBg 20s linear infinite;
-              align-self: flex-start;      /* 박스만 왼쪽으로 */
-              position: absolute;
-              left: 0;  
-            }
             a {
               font-size: 20px;
               color: black;
@@ -146,7 +132,7 @@ module.exports = (req, res) => {
               100% { background-color: red; }
             }
             .main-content {
-              background-image: url("logo.png");
+              background-image: url("image.jpg");
               margin-left: 200px;        /* aside 너비만큼 오른쪽으로 밀기 */
               display: flex;
               flex-direction: column;
