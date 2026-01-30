@@ -26,6 +26,7 @@ module.exports = (req, res) => {
               font-family: 'Outfit', sans-serif;
               flex-direction: column;
               text-align:center;
+              background-image: url("https://img.freepik.com/free-photo/3d-christmas-winter-landscape-with-falling-snow_1048-17353.jpg?t=st=1769682466~exp=1769686066~hmac=9c32214e4cd17d678a5ef1b9433981e61bdfcaf6ed241a96a3feca1887ea3712");
             }
             
             h1 {
@@ -132,7 +133,7 @@ module.exports = (req, res) => {
               100% { background-color: red; }
             }
             .main-content {
-              background-image: url("https://img.freepik.com/free-photo/3d-christmas-winter-landscape-with-falling-snow_1048-17353.jpg?t=st=1769682466~exp=1769686066~hmac=9c32214e4cd17d678a5ef1b9433981e61bdfcaf6ed241a96a3feca1887ea3712");
+              
               margin-left: 200px;        /* aside 너비만큼 오른쪽으로 밀기 */
               display: flex;
               flex-direction: column;
@@ -140,9 +141,7 @@ module.exports = (req, res) => {
               align-items: center;
               height: 100vh;
               color: white;
-              background-size: cover;
-              background-position: center;
-              background-repeat: no-repeat;
+
             }
 
 
