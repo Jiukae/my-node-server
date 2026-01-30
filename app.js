@@ -27,6 +27,10 @@ module.exports = (req, res) => {
               flex-direction: column;
               text-align:center;
               background-image: url("https://img.freepik.com/free-photo/3d-christmas-winter-landscape-with-falling-snow_1048-17353.jpg?t=st=1769682466~exp=1769686066~hmac=9c32214e4cd17d678a5ef1b9433981e61bdfcaf6ed241a96a3feca1887ea3712");
+              background-size: cover;         /* 화면 꽉 채우기 */
+              background-position: center;    /* 중앙 정렬 */
+              background-repeat: no-repeat;   /* 반복 제거 */
+              height: 100vh;   
             }
             
             h1 {
